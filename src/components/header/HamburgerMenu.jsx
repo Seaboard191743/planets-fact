@@ -8,7 +8,6 @@ export const HamburgerMenu = ({ open, handleOpen, width }) => {
   const lastItemRef = useRef(null);
 
   const hamburgerRef = useRef(null);
-  console.log(open);
   useEffect(() => {
     const hamburger = hamburgerRef.current;
     if (width > 720) {
