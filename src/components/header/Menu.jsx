@@ -7,7 +7,7 @@ export const Menu = ({ width }) => {
 
   useEffect(() => {
     const menu = menuRef.current;
-    if (width < 900) {
+    if (width < 725) {
       menu.style.display = 'none';
     }
     return () => (menu.style.display = 'flex');
@@ -16,8 +16,8 @@ export const Menu = ({ width }) => {
   return (
     <div ref={menuRef} className='menu'>
       {menuItems.map((item) => (
-        <CustomLink key={item} to={item} className='menu-item'>
-          {item}
+        <CustomLink key={item.name} to={item.name} className='menu-item'>
+          {item.name}
         </CustomLink>
       ))}
     </div>

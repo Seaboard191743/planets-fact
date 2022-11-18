@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { PlanetImage } from './planetimage/PlanetImage';
 import { PlanetInfo } from './planetinfo/PlanetInfo';
 import { PlanetStats } from './planetstats/PlanetStats';
+import { InfoHorizontalBar } from './infohorizontalbar/InfoHorizontalBar';
 
 import { LoaderComponent } from '../../hocs/loadercomponent/LoaderComponent';
 import { ErrorBoundary } from '../../hocs/errorboundary/ErrorBoundary';
@@ -25,7 +26,7 @@ export const PlanetContainer = () => {
 
   const handleClick = (e) => {
     const { className } = e.target;
-    setInfoClass(className);
+    setInfoClass(className.split(' ')[0]);
   };
 
   const props = {
@@ -38,23 +39,26 @@ export const PlanetContainer = () => {
     <div className='planet-container'>
       <LoaderComponent isLoading={isLoading}>
         <ErrorBoundary error={error}>
-          <PlanetImage>
-            {() => {
-              return infoClass === 'geology' ? (
-                <>
-                  <img src={data.images['overview']} alt='planet' />
-                  <img
-                    className='planet-geology'
-                    src={data.images[infoClass]}
-                    alt='planet'
-                  />
-                </>
-              ) : (
-                <img src={data.images[infoClass]} alt='planet' />
-              );
-            }}
-          </PlanetImage>
-          <PlanetInfo {...props} />
+          <InfoHorizontalBar {...props} />
+          <div className='planet-info-container'>
+            <PlanetImage>
+              {() => {
+                return infoClass === 'geology' ? (
+                  <>
+                    <img src={data.images['overview']} alt='planet' />
+                    <img
+                      className='planet-geology'
+                      src={data.images[infoClass]}
+                      alt='planet'
+                    />
+                  </>
+                ) : (
+                  <img src={data.images[infoClass]} alt='planet' />
+                );
+              }}
+            </PlanetImage>
+            <PlanetInfo {...props} />
+          </div>
           <PlanetStats {...data} />
         </ErrorBoundary>
       </LoaderComponent>

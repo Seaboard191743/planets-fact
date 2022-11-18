@@ -7,9 +7,13 @@
   left: 0;
 }
 .navigation {
+  position: relative;
   height: 85px;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
+  transition: height 0.3s;
+  z-index: 20;
 }
 .menu {
   margin-left: auto;
@@ -36,18 +40,61 @@
 }
 
 .navbrand-logo {
+  position: relative;
   font-family: var(--primary-font-family);
   font-size: 28px;
   font-weight: 400;
   letter-spacing: -1.05px;
   text-transform: uppercase;
   color: #fff;
+  z-index: 20;
 }
-
+.hamburger-menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 103px 24px 67px;
+  background: #070724;
+  display: none;
+}
+.hamburger-menu-active {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.hamburger-menu-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--secondary-font-family);
+  font-size: 15px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.hamburger-menu-item > a {
+  color: #fff;
+  letter-spacing: 1.36px;
+  text-decoration: none;
+  margin-left: 24px;
+}
+.pointer {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.path {
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+}
 .hamburger {
   cursor: pointer;
   transition: opacity 0.3s;
   margin-left: auto;
+  position: relative;
+  z-index: 20;
 }
 .hamburger:hover {
   opacity: 0.5;
@@ -71,4 +118,32 @@
 .hamburger-item-last-active {
   margin-top: -3px;
   transform: rotate(-45deg);
+}
+@media screen and (max-width: 860px) {
+  .navigation {
+    height: 159px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .header-border {
+    top: 159px;
+  }
+  .menu {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 720px) {
+  .navigation {
+    height: 85px;
+    flex-direction: row;
+  }
+
+  .header-border {
+    top: 85px;
+  }
+  .menu {
+    margin-left: auto;
+    justify-content: space-between;
+  }
 }

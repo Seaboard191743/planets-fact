@@ -13,8 +13,16 @@ export const PlanetInfo = ({ name, infoClass, handleClick, ...props }) => {
 
   return (
     <section className='planet-info'>
-      <h1 className='planet-name'>{name}</h1>
-      <p className='planet-description'>{props[infoClass].content}</p>
+      <div className='planet-info-block'>
+        <h1 className='planet-name'>{name}</h1>
+        <p className='planet-description'>{props[infoClass].content}</p>
+        <p className='info-link'>
+          Source:{' '}
+          <a href={props[infoClass].source} target='_blank' rel='noreferrer'>
+            Wikipedia
+          </a>
+        </p>
+      </div>
       <div className='btn-group' ref={btnGroupRef} onClick={handleClassSwitch}>
         <InfoBtn
           className='overview'
