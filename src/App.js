@@ -16,6 +16,7 @@ import { Jupiter } from './pages/Jupiter';
 import { Saturn } from './pages/Saturn';
 import { Uranus } from './pages/Uranus';
 import { Neptune } from './pages/Neptune';
+import { NoPageExists } from './hocs/errorboundary/NoPageExists';
 
 import './app.css';
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path='saturn' element={<Saturn />} />
       <Route path='uranus' element={<Uranus />} />
       <Route path='neptune' element={<Neptune />} />
+      <Route path='*' element={<NoPageExists />} />
     </Route>
   )
 );

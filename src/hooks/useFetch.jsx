@@ -20,7 +20,7 @@ export const useFetch = (db, property, item) => {
         setError('Bad Request');
       }
     }, 1000);
-  }, [db, item]);
+  }, [db, item, property]);
 
   return { data, isLoading, error };
 };
