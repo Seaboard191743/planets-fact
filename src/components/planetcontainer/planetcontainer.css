@@ -69,6 +69,7 @@
   font-family: var(--secondary-font-family);
   font-size: 14px;
   line-height: 25px;
+  min-height: 150px;
   color: #fff;
   margin-bottom: 24px;
 }
@@ -231,10 +232,11 @@
 @media screen and (max-width: 720px) {
   .planet-info {
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .planet-info-block {
     width: 100%;
+    margin-bottom: 0;
   }
   .navigation {
     height: 68px;
