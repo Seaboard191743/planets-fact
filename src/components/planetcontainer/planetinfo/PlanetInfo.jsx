@@ -8,7 +8,7 @@ export const PlanetInfo = ({ name, infoClass, handleClick, ...props }) => {
     Array.from(btnGroupRef.current.children).forEach(
       (elem) => (elem.style.background = 'none')
     );
-    if (e.target.className === btnGroupRef.current.className) {
+    if (e.target.className !== btnGroupRef.current.className) {
       e.target.style.background = props.selected;
     }
   };
